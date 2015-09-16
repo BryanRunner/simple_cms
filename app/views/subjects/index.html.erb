@@ -1,0 +1,23 @@
+<div id="header">
+
+</div>
+
+<div class="container-fluid">
+  <div id="content">
+    <p>
+      Loading Content...
+    </p>
+  </div>
+</div>
+
+
+<div id="footer">
+
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    window.router = new SimpleCms.Routers.Subjects({subjects: <%= (render partial: "subjects/index.json").html_safe %>});
+    Backbone.history.start();
+  });
+</script>

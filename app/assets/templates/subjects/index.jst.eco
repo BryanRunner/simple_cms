@@ -1,0 +1,3 @@
+<%= @subjects.each (subject) ->: %>
+  <li class="list-group-item"><%= subject.get("name") %></li>
+<% end: %>
