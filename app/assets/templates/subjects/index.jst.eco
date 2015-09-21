@@ -1,3 +1,2 @@
-<%= @subjects.each (subject) ->: %>
-  <li class="list-group-item"><%= subject.get("name") %></li>
-<% end: %>
+<ul class="nav nav-pills nav-stacked subjects">
+</ul>

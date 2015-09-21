@@ -1,18 +1,17 @@
 class SimpleCms.Views.SubjectsIndex extends Backbone.View
 
   template: JST['subjects/index']
-  tagName: "ul"
-  className: "list-group"
+  className: "col-md-3"
 
   initialize: ->
     @collection.on('reset', @render, this)
 
   render: ->
-    @$el.html(@template(subjects: @collection))
-    @collection.forEach(@renderSubject)
+    @$el.html(@template())
+    @collection.forEach (subject) =>
+      @renderSubject(subject)
     @
 
-  renderSubject: (model) ->
-    # alert(model.get("name"))
-    view = new SimpleCms.Views.Subject(model: model)
-    @$('.list-group').append(view.render().el)
+  renderSubject: (subject) ->
+    subjectView = new SimpleCms.Views.Subject(model: subject)
+    @$('.subjects').append(subjectView.render().el)
