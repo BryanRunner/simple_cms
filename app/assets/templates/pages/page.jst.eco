@@ -1,10 +1,6 @@
-<li>
-  <a class="page" data-toggle="collapse" href="#page_<%= page.get('id') %>">
-    <%= page.get('name') %>
+  <a class="page" data-toggle="collapse" href="#page_<%= @page.get('id') %>">
+    <%= @page.get('name') %>
   </a>
-  <ul class="nav nav-pills nav-stacked collapse" id="page_<%= page.get('id') %>">
-    <li><a class="section" href="#">Section 1</a></li>
-    <li><a class="section" href="#">Section 2</a></li>
-    <li><a class="section" href="#">Section 3</a></li>
+  <ul class="nav nav-pills nav-stacked sections collapse" id="page_<%= @page.get('id') %>">
+    
   </ul>
-</li>

@@ -7,17 +7,13 @@ class SimpleCms.Views.Subject extends Backbone.View
     @model.on('change', @render, this)
 
   render: ->
-    # alert(@model.get("name"))
     @$el.html(@template(subject: @model))
     @renderPages()
     @
 
   renderPages: ->
     pages = @model.attributes.pages
-    subject = @model.attributes
-    pages.forEach (page) ->
-      # alert(subject.name + '/' + page.name + '/')
-      # for some reason I can't get the data from page to transfer over to the page view (page.js.coffee)
-      subjectPage = new SimpleCms.Views.Page(model: page)
-      @$('.subject').append(subjectPage.render().el)
+    pages.forEach (page) =>
+      subjectPage = new SimpleCms.Views.Page(model: new SimpleCms.Models.Page(page))
+      @$('.pages').append(subjectPage.render().el)
     @

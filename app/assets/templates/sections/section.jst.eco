@@ -1,0 +1,3 @@
+<a class="section" data-toggle="collapse" href="#section_<%= @section.get('id') %>">
+  <%= @section.get('name') %>
+</a>

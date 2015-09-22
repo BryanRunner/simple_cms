@@ -9,6 +9,13 @@ class SimpleCms.Views.Page extends Backbone.View
     @model.on('change', @render, this)
 
   render: ->
-    alert(@model.get("name"))
     @$el.html(@template(page: @model))
+    @renderSections()
     @
+
+  renderSections: ->
+    sections = @model.attributes.sections
+    sections.forEach (section) =>
+      pageSection = new SimpleCms.Views.Section(model: new SimpleCms.Models.Section(section))
+      @$('.sections').append(pageSection.render().el)
+    @  
