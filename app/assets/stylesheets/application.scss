@@ -21,6 +21,7 @@ ul {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
+  width: 100%;
 
   &:hover {
     background-color: darken($btn-default-bg, 10%) !important;
@@ -38,6 +39,7 @@ ul {
   padding-left: 40px !important;
   text-transform: uppercase;
   letter-spacing: 2px;
+  width: 100%;
 
   &:hover {
     background-color: darken($gray-lighter, 10%) !important;
@@ -53,6 +55,7 @@ ul {
   padding-left: 60px !important;
   text-transform: uppercase;
   letter-spacing: 2px;
+  width: 100%;
 
   &:hover {
     background-color: #fff !important;
