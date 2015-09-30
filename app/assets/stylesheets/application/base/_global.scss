@@ -1,0 +1,38 @@
+ul {
+  list-style: none;
+}
+
+em {
+  color: $brand-primary;
+}
+
+.panel-heading {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#wrapper.nav-expand {
+
+  & #sidebar-wrapper {
+    width:300px;
+
+    @media (max-width: 767px) {
+      width:100%;
+    }
+  }
+  & #content-wrapper {
+    padding-left: 300px;
+
+    @media (max-width: 767px) {
+      padding-left: 0px;
+    }
+  }
+}
+
+#wrapper.nav-hover {
+
+  & #sidebar-wrapper {
+    width:7px;
+    padding-left: 7px;
+  }
+}

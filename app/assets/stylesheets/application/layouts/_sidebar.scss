@@ -1,0 +1,92 @@
+#sidebar-wrapper {
+  z-index: 100;
+  position:absolute;
+  width:0px;
+  height: calc(100vh - #{$navbar-height});
+  //
+  overflow-y: hidden;
+  background-color: $btn-default-bg;
+  transition: all .2s ease;
+}
+
+.sidebar-nav {
+  min-width: 300px;
+  padding: 0px 0px 0px 0px;
+  margin-top: 41px;
+  overflow: hidden;
+  background-color: $btn-default-bg;
+  border-top: 1px solid transparentize(#000, .5);
+
+  @media (max-width: 767px) {
+    width:100%;
+  }
+
+  ul {
+    padding: 0px;
+  }
+}
+
+.subject {
+  display: block;
+  background-color: transparent;
+  padding: 10px 0px 10px 0px;
+  color: #fff;
+  background-color: darken($btn-default-bg, 10%);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-indent: 10px;
+  overflow: hidden;
+  border-bottom: 1px solid transparentize(#000, .6);
+  transition: all .2s ease;
+
+  &:hover {
+    color: $brand-primary;
+  }
+  &.active {
+    color: $brand-primary;
+  }
+}
+
+.pages {
+  display: block;
+  overflow: hidden;
+  height: 0px;
+  transition: all .2s ease;
+  background-color: $btn-default-bg;
+
+  &.active {
+    height: 123px;
+    border-bottom: 1px solid transparentize(#000, .5);
+  }
+}
+
+.page {
+  display: block;
+  background-color:transparent;
+  padding: 10px 0px 10px 0px;
+  color: #bbb;
+  font-size: 14px;
+  text-indent: 20px;
+  overflow: hidden;
+  font-family: $font-family-source;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparentize(#000, .8);
+  border-left: 2px solid $brand-primary;
+  transition: all .1s ease;
+
+  &:hover {
+    // background-color: lighten($btn-default-bg, 10%);
+    color: #fff;
+    text-indent: 25px;
+    border-bottom: 1px solid transparentize(#000, .5);
+  }
+  &.active {
+    // background-color: lighten($btn-default-bg, 15%);
+    color: #fff;
+    border-left: solid 2px transparent;
+    text-indent: 35px;
+    border-bottom: 1px solid transparentize(#000, .5);
+    border-left: 2px solid $brand-primary;
+  }
+}

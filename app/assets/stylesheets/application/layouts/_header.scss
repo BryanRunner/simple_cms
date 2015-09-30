@@ -1,0 +1,68 @@
+$sidebar-toggle-bg: darken(#FCFCFC, 2%);
+$sidebar-toggle-bg-hover: darken(#FCFCFC, 10%);
+
+.navbar {
+  border: none !important;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
+
+  .glyphicon {
+    width: 60px;
+    height: 60px;
+    // display: block;
+    line-height: 60px;
+    text-align: center;
+    font-size: 25px;
+    color: $btn-default-bg;
+  }
+}
+
+.navbar-brand {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: $font-family-source;
+  font-size: 20px;
+  font-weight: 600;
+
+  &:hover {
+    color: $link-hover-color;
+
+    span {
+      background-color: darken($btn-default-bg, 4%);
+      color: #fff;
+    }
+  }
+
+  span {
+    background-color: $btn-default-bg;
+    color: #fff;
+    margin-left: 2px;
+    padding: 2px 8px 3px 8px;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    font-weight: normal;
+  }
+}
+
+#sidebar-toggle {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  margin-right: $grid-gutter-width;
+  border-right: 1px solid transparentize(#000, .90);
+  border-left: 1px solid transparentize(#000, .90);
+  background-color: $sidebar-toggle-bg;
+  float: left;
+
+  &:hover {
+    background-color: $sidebar-toggle-bg-hover;
+  }
+
+  &.active {
+    background-color: $btn-default-bg;
+    border-right: 1px solid transparentize(#000, .90);
+    border-left: 1px solid transparentize(#000, .8);
+  }
+  &.active .glyphicon{
+    color: darken($btn-default-bg, 15%);
+  }
+}

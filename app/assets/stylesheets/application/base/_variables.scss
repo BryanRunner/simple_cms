@@ -15,7 +15,7 @@ $gray:                   #777 !default;
 $gray-light:             #808080 !default;
 $gray-lighter:           #ddd !default;
 
-$brand-primary:         lighten(#D9230F, 10%) !default;
+$brand-primary:         lighten(#4c9670, 10%) !default;
 $brand-success:         #469408 !default;
 $brand-info:            #029ACF !default;
 $brand-warning:         #9B479F !default;
@@ -42,7 +42,9 @@ $link-hover-decoration: none !default;
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:400,600);
 
+$font-family-source: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
@@ -359,7 +361,7 @@ $container-lg:                 $container-large-desktop !default;
 
 // Basics of a navbar
 $navbar-height:                    60px !default;
-$navbar-margin-bottom:             $line-height-computed !default;
+$navbar-margin-bottom:             0px !default;
 $navbar-border-radius:             $border-radius-base !default;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
@@ -370,8 +372,8 @@ $navbar-default-bg:                #fff !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 
 // Navbar links
-$navbar-default-link-color:                $gray !default;
-$navbar-default-link-hover-color:          $brand-primary !default;
+$navbar-default-link-color:                $brand-primary !default;
+$navbar-default-link-hover-color:          darken($brand-primary, 7%) !default;
 $navbar-default-link-hover-bg:             transparent !default;
 $navbar-default-link-active-color:         $navbar-default-link-hover-color !default;
 $navbar-default-link-active-bg:            transparent !default;
@@ -379,7 +381,7 @@ $navbar-default-link-disabled-color:       #444 !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
 // Navbar brand label
-$navbar-default-brand-color:               $navbar-default-link-color !default;
+$navbar-default-brand-color:               $brand-primary !default;
 $navbar-default-brand-hover-color:         $navbar-default-link-hover-color !default;
 $navbar-default-brand-hover-bg:            transparent !default;
 
@@ -489,7 +491,7 @@ $jumbotron-padding:              30px !default;
 $jumbotron-color:                inherit !default;
 $jumbotron-bg:                   darken($body-bg, 3%) !default;
 $jumbotron-heading-color:        inherit !default;
-$jumbotron-font-size:            ceil(($font-size-base * 1.5)) !default;
+$jumbotron-font-size:            ceil(($font-size-base * 1.1)) !default;
 $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 
 
@@ -710,12 +712,12 @@ $panel-footer-padding:        $panel-heading-padding !default;
 $panel-border-radius:         $border-radius-base !default;
 
 //** Border color for elements within panels
-$panel-inner-border:          #ddd !default;
+$panel-inner-border:          #ccc !default;
 $panel-footer-bg:             $btn-default-bg !default;
 
-$panel-default-text:          $btn-default-color !default;
-$panel-default-border:        $btn-default-bg !default;
-$panel-default-heading-bg:    $panel-footer-bg !default;
+$panel-default-text:          $gray-dark !default;
+$panel-default-border:        #f5f5f5 !default;
+$panel-default-heading-bg:    #f5f5f5 !default;
 
 $panel-primary-text:          #fff !default;
 $panel-primary-border:        $brand-primary !default;

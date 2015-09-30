@@ -1,6 +1,6 @@
-  <a class="subject" data-toggle="collapse" href="#subject_<%= @subject.get('id') %>">
+  <a class="subject" href="#subject_<%= @subject.get('id') %>">
       <%= @subject.get('name') %>
   </a>
-  <ul class="nav nav-pills nav-stacked pages collapse" id="subject_<%= @subject.get('id') %>">
-      
+  <ul class="pages" id="subject_<%= @subject.get('id') %>">
+
   </ul>
