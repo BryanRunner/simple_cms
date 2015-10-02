@@ -165,6 +165,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   backbone-on-rails
   bootstrap-sass
   byebug
@@ -180,3 +181,6 @@ DEPENDENCIES
   turbolinks
   uglifier
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6

@@ -8,11 +8,15 @@ $sidebar-toggle-bg-hover: darken(#FCFCFC, 10%);
   .glyphicon {
     width: 60px;
     height: 60px;
-    // display: block;
+    display: inline;
     line-height: 60px;
     text-align: center;
     font-size: 25px;
     color: $btn-default-bg;
+
+    @media (max-width: 500px) {
+      font-size: 18px;
+    }
   }
 }
 
@@ -22,6 +26,10 @@ $sidebar-toggle-bg-hover: darken(#FCFCFC, 10%);
   font-family: $font-family-source;
   font-size: 20px;
   font-weight: 600;
+
+  @media (max-width: 767px) {
+    font-size: ceil(($font-size-base * 1.1));
+  }
 
   &:hover {
     color: $link-hover-color;
@@ -51,7 +59,12 @@ $sidebar-toggle-bg-hover: darken(#FCFCFC, 10%);
   border-right: 1px solid transparentize(#000, .90);
   border-left: 1px solid transparentize(#000, .90);
   background-color: $sidebar-toggle-bg;
+  text-align: center;
   float: left;
+
+  @media (max-width: 500px) {
+    margin-right: 0px;
+  }
 
   &:hover {
     background-color: $sidebar-toggle-bg-hover;
