@@ -12,11 +12,9 @@ class SimpleCms.Routers.ApplicationRouter extends Backbone.Router
 
   index: ->
     welcomeView  = new SimpleCms.Views.Welcome()
-    # $('#content').html(welcomeView.render().el)
 
   showPage: (subject_id, page_id) ->
     page = new SimpleCms.Views.Page(collection: @pages, id: page_id)
-    $('#content').html(page.render().el)
 
   findPages: (subjects) ->
     _.map subjects, (subject) ->

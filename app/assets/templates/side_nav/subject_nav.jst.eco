@@ -1,6 +1,6 @@
-  <a class="subject" href="#subject_<%= @subject.get('id') %>">
+  <a class="subject-nav" href="#subject_<%= @subject.get('id') %>">
       <%= @subject.get('name') %>
   </a>
-  <ul class="pages" id="subject_<%= @subject.get('id') %>">
+  <ul class="pages-nav" id="subject_<%= @subject.get('id') %>">
 
   </ul>

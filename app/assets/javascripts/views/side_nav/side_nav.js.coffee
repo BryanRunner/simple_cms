@@ -3,8 +3,8 @@ class SimpleCms.Views.SideNav extends SimpleCms.Views.HelperMethods
   template: JST['side_nav/side_nav']
 
   events:
-    'click .subject': 'handleSubject'
-    'click .page'   : 'handlePage'
+    'click .subject-nav': 'clickSubjectNav'
+    'click .page-nav'   : 'clickPageNav'
 
   initialize: ->
     @setElement("#sidebar-content")
@@ -17,14 +17,14 @@ class SimpleCms.Views.SideNav extends SimpleCms.Views.HelperMethods
     @
 
   renderSubject: (subject) =>
-    subjectView = new SimpleCms.Views.SubjectNav(model: subject)
-    @$('.sidebar-nav').append(subjectView.render().el)
+    subjectNav = new SimpleCms.Views.SubjectNav(model: subject)
+    @$('.sidebar-nav').append(subjectNav.render().el)
 
-  handleSubject: (event) ->
+  clickSubjectNav: (event) ->
     clicked     = @$(event.target)
     target      = clicked.attr('href')
-    activePages = @$('.pages.active')
-    subject     = @$('.subject')
+    activePages = @$('.pages-nav.active')
+    subject     = @$('.subject-nav')
 
     event.preventDefault()
     if clicked.hasClass("active")
@@ -33,10 +33,10 @@ class SimpleCms.Views.SideNav extends SimpleCms.Views.HelperMethods
       @deactivateClass([subject, activePages])
       @activateClass([clicked, target])
 
-  handlePage: (event) ->
+  clickPageNav: (event) ->
     clicked    = @$(event.target)
-    page       = @$('.page')
-    activePage = @$('.page.active')
+    page       = @$('.page-nav')
+    activePage = @$('.page-nav.active')
 
     if clicked.hasClass("active") == false
       @activateClass([clicked])

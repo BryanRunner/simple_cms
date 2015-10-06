@@ -8,12 +8,12 @@ class SimpleCms.Views.SubjectNav extends SimpleCms.Views.HelperMethods
 
   render: ->
     @$el.html(@template(subject: @model))
-    @renderPages()
+    @renderPagesNav()
     @
 
-  renderPages: ->
+  renderPagesNav: ->
     pages = @model.attributes.pages
     pages.forEach (page) =>
-      subjectPage = new SimpleCms.Views.PageNav(model: new SimpleCms.Models.Page(page))
-      @$('.pages').append(subjectPage.render().el)
+      pageNav = new SimpleCms.Views.PageNav(model: new SimpleCms.Models.Page(page))
+      @$('.pages-nav').append(pageNav.render().el)
     @
