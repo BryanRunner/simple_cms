@@ -1,9 +1,10 @@
-class SimpleCms.Views.Page extends Backbone.View
+class SimpleCms.Views.Page extends SimpleCms.Views.HelperMethods
 
   template: JST['pages/page']
-  tagName: "li"
+  className: 'container'
 
   initialize: ->
+    @model = @collection.get(@id)
     @model.on('change', @render, this)
 
   render: ->

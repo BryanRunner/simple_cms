@@ -1,0 +1,51 @@
+<div class="container"><!-- container -->
+  <div class="row no-gutter"><!-- row -->
+
+    <div class="col-sm-12 col-md-6">
+
+        <div class="home-btn">
+          <div class="welcome-content">
+            <p><strong><span class="glyphicon glyphicon-circle-arrow-right"></span> sign up</strong></p>
+            <p class="sub-text">Create an account now for free
+            </p>
+          </div>
+          <span class="welcome-icon glyphicon glyphicon-user"></span>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+        <div class="home-btn">
+          <div class="welcome-content">
+            <p><strong><span class="glyphicon glyphicon-circle-arrow-right"></span> log in</strong></p>
+            <p>Already have an account?</p>
+          </div>
+          <span class="welcome-icon glyphicon glyphicon-log-in"></span>
+        </div>
+    </div>
+  </div><!-- /row -->
+
+  <div class="row no-gutter"><!-- row -->
+
+    <div class="col-sm-12 col-md-6">
+
+        <div class="home-btn">
+          <div class="welcome-content">
+            <p><strong><span class="glyphicon glyphicon-circle-arrow-right"></span> find out more</strong></p>
+            <p>Want to know more about simple cms?</p>
+          </div>
+          <span class="welcome-icon glyphicon glyphicon-info-sign"></span>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6">
+        <div class="home-btn">
+          <div class="welcome-content">
+            <p><strong><span class="glyphicon glyphicon-circle-arrow-right"></span> browse content</strong></p>
+            <p>Just want to check some stuff out?</p>
+          </div>
+          <span class="welcome-icon glyphicon glyphicon-search"></span>
+        </div>
+      </div>
+
+  </div><!-- /row -->
+</div><!-- /container -->

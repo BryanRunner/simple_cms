@@ -25,7 +25,7 @@
 
 <script type="text/javascript">
   $(function() {
-    window.router = new SimpleCms.Routers.Subjects({subjects: <%= (render partial: "subjects/index.json").html_safe %>});
+    window.router = new SimpleCms.Routers.ApplicationRouter({subjects: <%= (render partial: "subjects/index.json").html_safe %>});
     Backbone.history.start();
   });
 </script>

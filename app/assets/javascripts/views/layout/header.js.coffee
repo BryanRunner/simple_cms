@@ -1,7 +1,7 @@
-class SimpleCms.Views.Header extends Backbone.View
+class SimpleCms.Views.Header extends SimpleCms.Views.HelperMethods
 
-  template: JST['header']
-  
+  template: JST['layout/header']
+
   events:
     'click #sidebar-toggle': 'toggleClick'
 

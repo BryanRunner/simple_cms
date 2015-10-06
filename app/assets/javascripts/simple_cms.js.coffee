@@ -3,7 +3,8 @@ window.SimpleCms =
   Collections: {}
   Views: {}
   Routers: {}
-  
-
+#   initialize: ->
+#
 # $(document).ready ->
 #   SimpleCms.initialize()
+  
