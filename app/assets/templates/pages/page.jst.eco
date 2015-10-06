@@ -1,6 +1,3 @@
-  <a class="page" href="#page_<%= @page.get('id') %>">
+  <a class="page" href="#/subject/<%= @page.get('subject_id') %>/page/<%= @page.get('id') %>">
     <%= @page.get('name') %>
   </a>
-  <ul class="sections" id="page_<%= @page.get('id') %>">
-
-  </ul>

@@ -1,0 +1,3 @@
+<h1><%= @page.get("name") %></h1>
+<h2><%= @page.get("id") %></h2>
+<h2><%= @page.get("subject_id") %></h2>

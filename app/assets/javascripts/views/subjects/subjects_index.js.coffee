@@ -1,13 +1,14 @@
-class SimpleCms.Views.SubjectsIndex extends Backbone.View
+class SimpleCms.Views.SubjectsIndex extends SimpleCms.Views.HelperMethods
 
   template: JST['subjects/index']
 
   events:
-    'click .subject': 'activeateSubject'
-    'click .page': 'activatePage'
+    'click .subject': 'handleSubject'
+    'click .page': 'handlePage'
 
   initialize: ->
-    @collection.on('reset', @render, this)
+    # @collection.on('reset', @render, this)
+    @render()
 
   render: ->
     @$el.html(@template())
@@ -19,35 +20,24 @@ class SimpleCms.Views.SubjectsIndex extends Backbone.View
     subjectView = new SimpleCms.Views.Subject(model: subject)
     @$('.sidebar-nav').append(subjectView.render().el)
 
-  activeateSubject: (event) ->
+  handleSubject: (event) ->
+    clicked = @$(event.target)
+    target = clicked.attr('href')
+    activePages = @$('.pages.active')
+    subject = @$('.subject')
+
     event.preventDefault()
-
-    target = $(event.target).attr('href')
-    clicked = $(event.target)
-    activePages = $('.pages.active')
-
-    if @$(clicked).hasClass("active")
-      @$(clicked).removeClass('active')
-      @$(activePages).removeClass("active")
+    if clicked.hasClass("active")
+      @deactivateClass([clicked, activePages])
     else
-      @$('.subject').removeClass('active')
-      @$(activePages).removeClass("active")
-      @$(clicked).addClass("active")
-      @$(target).addClass("active")
+      @deactivateClass([subject, activePages])
+      @activateClass([clicked, target])
 
-    # use the length of pages.children +1 to dynamically set the height of .pages // each li is 41px tall
-    # for now it is hard coded in, will probably be better to calc initial height in the render pages function or at least the number of items rendered
-    # alert($('.pages').children.length)
+  handlePage: (event) ->
+    clicked = @$(event.target)
+    page = @$('.page')
+    activePage = @$('.page.active')
 
-  activatePage: (event) ->
-    event.preventDefault()
-
-    clicked = $(event.target)
-    page = $('.page')
-    pageActive = $('.page.active')
-
-    if @$(clicked).hasClass("active")
-      @$(pageActive).removeClass("active")
-    else
-      @$(pageActive).removeClass("active")
-      @$(clicked).addClass("active")
+    if clicked.hasClass("active") == false
+      @activateClass([clicked])
+    @deactivateClass([activePage])
