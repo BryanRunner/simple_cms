@@ -3,8 +3,11 @@ window.SimpleCms =
   Collections: {}
   Views: {}
   Routers: {}
-#   initialize: ->
-#
-# $(document).ready ->
-#   SimpleCms.initialize()
-  
+  initialize: () ->
+    new SimpleCms.Routers.ApplicationRouter(@InitialData)
+    
+$(document).ready ->
+  SimpleCms.initialize()
+  Backbone.history.start()
+# if InitialData? and not _.isEmpty(InitialData)
+#   SimpleCms.Collections.Subjects.reset InitialData

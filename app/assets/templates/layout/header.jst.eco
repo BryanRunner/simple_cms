@@ -1,7 +1,8 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
-      <a href="#" class="navbar-link" id="sidebar-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+      <a class="navbar-left" id="sidebar-toggle" href="menu">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+      </a>
       <a class="navbar-brand" href="#">Simple<span>Cms</span></a>
-      <a href="#" class="navbar-link"><span class="glyphicon glyphicon-globe pull-right"></span></a>
   </div><!-- /.container-fluid -->
 </nav>

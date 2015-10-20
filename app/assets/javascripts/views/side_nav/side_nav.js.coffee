@@ -2,42 +2,56 @@ class SimpleCms.Views.SideNav extends SimpleCms.Views.HelperMethods
 
   template: JST['side_nav/side_nav']
 
-  events:
-    'click .subject-nav': 'clickSubjectNav'
-    'click .page-nav'   : 'clickPageNav'
-
   initialize: ->
-    @setElement("#sidebar-content")
+    @setElement('#sidebar-content')
+    @listenTo Backbone, 'navCheck', @navStatus
+    @listenTo Backbone, 'subjectChange', @updateSubjectNav
+    @listenTo Backbone, 'pageChange', @updatePageNav
     @render()
 
   render: ->
     @$el.html(@template())
+    @subjectNum = 0
     @collection.forEach (subject) =>
-      @renderSubject(subject)
+      @renderSubjectNav(subject)
+      @subjectNum++
     @
 
-  renderSubject: (subject) =>
+  renderSubjectNav: (subject) =>
     subjectNav = new SimpleCms.Views.SubjectNav(model: subject)
     @$('.sidebar-nav').append(subjectNav.render().el)
 
-  clickSubjectNav: (event) ->
-    clicked     = @$(event.target)
-    target      = clicked.attr('href')
-    activePages = @$('.pages-nav.active')
-    subject     = @$('.subject-nav')
+  # color: ["#fff", "#64b189"]
 
-    event.preventDefault()
-    if clicked.hasClass("active")
-      @deactivateClass([clicked, activePages])
+  navStatus: ->
+    if @subjectToggled
+      Backbone.trigger 'subjectNavStatus', true
     else
-      @deactivateClass([subject, activePages])
-      @activateClass([clicked, target])
+      Backbone.trigger 'subjectNavStatus', false
 
-  clickPageNav: (event) ->
-    clicked    = @$(event.target)
-    page       = @$('.page-nav')
-    activePage = @$('.page-nav.active')
+  updateSubjectNav: (subjectId) =>
+    subject = @$("#subject_#{subjectId}")
+    height = @subjectNum * 41
+    id = Number(subjectId)
 
-    if clicked.hasClass("active") == false
-      @activateClass([clicked])
-    @deactivateClass([activePage])
+    if @subjectToggled
+      if @subjectToggled != id
+        @subjectNavAnim(@prevSubject, height, "up")
+
+        @subjectToggled = id
+        @prevSubject = subject
+        @subjectNavAnim(@prevSubject, height, "down")
+    else
+      @subjectToggled = id
+      @prevSubject = subject
+      @subjectNavAnim(@prevSubject, height, "down")
+
+  updatePageNav: (pageId) =>
+    page = @$("#page_#{pageId}")
+    if @pageToggled
+      @deactivateClass [@pageToggled], =>
+        @pageToggled = page
+        @activateClass([@pageToggled])
+    else
+      @pageToggled = page
+      @activateClass([@pageToggled])

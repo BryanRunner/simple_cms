@@ -11,20 +11,6 @@ em {
   font-weight: bold;
 }
 
-#wrapper.nav-expand {
-
-  & #sidebar-wrapper {
-    width:300px;
-
-    @media (max-width: 767px) {
-      width:100%;
-    }
-  }
-  & #content-wrapper {
-    padding-left: 300px;
-
-    @media (max-width: 767px) {
-      padding-left: 0px;
-    }
-  }
+#wrapper {
+  max-height: 100vh;
 }

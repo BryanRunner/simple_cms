@@ -4,20 +4,6 @@ $sidebar-toggle-bg-hover: darken(#FCFCFC, 10%);
 .navbar {
   border: none !important;
   box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
-
-  .glyphicon {
-    width: 60px;
-    height: 60px;
-    display: inline;
-    line-height: 60px;
-    text-align: center;
-    font-size: 25px;
-    color: $btn-default-bg;
-
-    @media (max-width: 500px) {
-      font-size: 18px;
-    }
-  }
 }
 
 .navbar-brand {
@@ -47,11 +33,12 @@ $sidebar-toggle-bg-hover: darken(#FCFCFC, 10%);
     padding: 2px 8px 3px 8px;
     border-radius: 2px;
     letter-spacing: 2px;
-    font-weight: normal;
+    font-weight: bold;
   }
 }
 
 #sidebar-toggle {
+  display:block;
   width: 60px;
   height: 60px;
   line-height: 60px;
@@ -77,5 +64,13 @@ $sidebar-toggle-bg-hover: darken(#FCFCFC, 10%);
   }
   &.active .glyphicon{
     color: darken($btn-default-bg, 15%);
+  }
+  .glyphicon {
+    display: inline;
+    width: 58px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    color: $btn-default-bg;
   }
 }

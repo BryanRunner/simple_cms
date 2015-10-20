@@ -11,5 +11,8 @@
 
 <%= yield %>
 
+
+<script>window.SimpleCms.InitialData = {subjects: <%= (render partial: "subjects/index.json").html_safe %>};</script>
+
 </body>
 </html>

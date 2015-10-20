@@ -2,11 +2,13 @@ class SimpleCms.Views.Header extends SimpleCms.Views.HelperMethods
 
   template: JST['layout/header']
 
-  events:
+  events: ->
     'click #sidebar-toggle': 'toggleClick'
 
   initialize: ->
-    @setElement("#header")
+    @setElement('#header')
+    @sidebar = $('#sidebar-wrapper')
+    @toggled = false
     @render()
 
   render: ->
@@ -14,18 +16,18 @@ class SimpleCms.Views.Header extends SimpleCms.Views.HelperMethods
     @
 
   toggleClick: (event) ->
-    navToggle = $('#sidebar-toggle')
-    sidebar = $('#sidebar-wrapper')
-
     event.preventDefault()
-    navToggle.toggleClass('active')
-    if navToggle.hasClass('active')
-      sidebar.velocity({
-        p: {left: "0%"},
-        o: {duration: 300}
-      })
+    $(event.currentTarget).toggleClass('active')
+    @animateNav()
+
+  animateNav: () ->
+    if @toggled == false
+      @sidebar.velocity
+        p: {translateX: ["0%", "-100%"]},
+        o: {duration: 300, easing: "easeInOutQuint"}
+      @toggled = true
     else
-      sidebar.velocity({
-        p: {left: "-100%"},
-        o: {duration: 300}
-      })
+      @sidebar.velocity
+        p: {translateX: ["-100%", "0%"]},
+        o: {duration: 300, easing: "easeInOutQuint"}
+      @toggled = false
