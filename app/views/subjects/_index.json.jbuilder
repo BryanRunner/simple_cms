@@ -15,6 +15,7 @@ json.array! @subjects do |subject|
       json.id section.id
       json.page_id section.page_id
       json.name section.name
+      json.content section.content
       json.position section.position
       json.visible section.visible
     end

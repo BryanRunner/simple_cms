@@ -1,3 +1,12 @@
-<h1 class="animate"><%= @page.get("name") %></h1>
-<h2 class="animate">Page_id: <%= @page.get("id") %></h2>
-<h2 class="animate">Subject_id: <%= @page.get("subject_id") %></h2>
+<div class="page-header animate">
+  <h1><%= @page.get("name") %></h1>
+</div>
+
+<div class="row">
+  <% @sections.forEach (section) ->:%>
+  <div class="col-md-6 animate section">
+    <h3><%= section.name %></h3>
+    <p><%=  section.content %></p>
+  </div>
+  <% end %>
+</div>

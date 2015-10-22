@@ -24,15 +24,15 @@ class SimpleCms.Routers.ApplicationRouter extends Backbone.Router
   swapView: (view) ->
     router = @
     if @currentView
-      $('#content .animate').velocity "transition.slideLeftBigOut", stagger: 100, duration: 300, complete: ->
+      $('#content .animate').velocity "transition.fadeOut", duration: 100, complete: ->
         router.currentView.remove()
         router.currentView = view
         router.content.html(view.render().$el)
-        $('#content .animate').velocity("transition.slideLeftBigIn", stagger: 100, duration: 300)
+        $('#content .animate').velocity("transition.slideDownIn", stagger: 25, duration: 300)
     else
       router.currentView = view
       router.content.html(view.render().$el)
-      $('#content .animate').velocity("transition.slideLeftBigIn", stagger: 100, duration: 300)
+      $('#content .animate').velocity("transition.slideDownIn", stagger: 25, duration: 300)
 
   findPages: (subjects) ->
     _.map subjects, (subject) ->

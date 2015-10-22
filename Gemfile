@@ -27,7 +27,8 @@ gem 'pry-rails'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-
+gem 'faker'
+# gem 'fabrication'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
