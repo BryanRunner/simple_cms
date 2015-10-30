@@ -25,8 +25,7 @@
 
 <div class="row no-gutter"><!-- row -->
 
-  <div class="col-sm-12 col-md-6">
-
+    <div class="col-sm-12 col-md-6">
       <div class="home-btn animate">
         <div class="welcome-content">
           <p><strong><span class="glyphicon glyphicon-circle-arrow-right"></span> find out more</strong></p>
@@ -37,13 +36,13 @@
     </div>
 
     <div class="col-sm-12 col-md-6">
-      <div class="home-btn animate">
+      <a href="#/subjects" class="home-btn animate">
         <div class="welcome-content">
           <p><strong><span class="glyphicon glyphicon-circle-arrow-right"></span> browse content</strong></p>
           <p>Just want to check some stuff out?</p>
         </div>
         <span class="welcome-icon glyphicon glyphicon-search"></span>
-      </div>
+      </a>
     </div>
 
 </div><!-- /row -->

@@ -5,23 +5,37 @@ class SimpleCms.Views.SideNav extends SimpleCms.Views.HelperMethods
   initialize: ->
     @setElement('#sidebar-content')
     @listenTo Backbone, 'navCheck', @navStatus
-    @listenTo Backbone, 'subjectChange', @updateSubjectNav
     @listenTo Backbone, 'pageChange', @updatePageNav
+    @listenTo Backbone, 'subjectCreated', @renderSubjectNav
+    @listenTo Backbone, 'subjectDestroyed', @destroySubjectNav
     @render()
 
+  events: ->
+    'click .subject-nav' :'announceSubject'
+
   render: ->
-    @$el.html(@template())
-    @subjectNum = 0
-    @collection.forEach (subject) =>
-      @renderSubjectNav(subject)
-      @subjectNum++
+    @$el.html(@template(subjects: @collection))
+    # @subjectNum = []
+    # @collection.forEach (subject) =>
+    #   @renderSubjectNav(subject)
     @
 
   renderSubjectNav: (subject) =>
     subjectNav = new SimpleCms.Views.SubjectNav(model: subject)
     @$('.sidebar-nav').append(subjectNav.render().el)
 
+  destroySubjectNav: (subjectId) =>
+    $("#subject_#{subjectId}").closest("li").remove()
+
   # color: ["#fff", "#64b189"]
+
+  announceSubject: (event) ->
+    event.preventDefault()
+    target = $(event.currentTarget).attr('href')
+    id = target.split("_").pop()
+    @updateSubjectNav(id)
+    # Backbone.trigger('subjectChange', ["#{@model.get('id')}"])
+
 
   navStatus: ->
     if @subjectToggled
@@ -30,9 +44,10 @@ class SimpleCms.Views.SideNav extends SimpleCms.Views.HelperMethods
       Backbone.trigger 'subjectNavStatus', false
 
   updateSubjectNav: (subjectId) =>
-    subject = @$("#subject_#{subjectId}")
-    height = @subjectNum * 41
     id = Number(subjectId)
+    subject = @$("#subject_#{subjectId}")
+    subjectModel = @collection.get(id).attributes.numberOfPages
+    height = subjectModel * 41
 
     if @subjectToggled
       if @subjectToggled != id

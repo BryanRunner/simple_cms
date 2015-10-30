@@ -4,8 +4,8 @@ window.SimpleCms =
   Views: {}
   Routers: {}
   initialize: () ->
-    new SimpleCms.Routers.ApplicationRouter(@InitialData)
-    
+    this.router = new SimpleCms.Routers.ApplicationRouter(@InitialData)
+
 $(document).ready ->
   SimpleCms.initialize()
   Backbone.history.start()

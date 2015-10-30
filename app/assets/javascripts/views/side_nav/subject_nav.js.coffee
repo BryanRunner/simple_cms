@@ -16,13 +16,12 @@ class SimpleCms.Views.SubjectNav extends SimpleCms.Views.HelperMethods
 
   renderPagesNav: ->
     pages = @model.attributes.pages
-    pages.forEach (page) =>
-      pageNav = new SimpleCms.Views.PageNav(model: new SimpleCms.Models.Page(page))
-      @$('.pages-nav').append(pageNav.render().el)
+    if pages != undefined
+      pages.forEach (page) =>
+        pageNav = new SimpleCms.Views.PageNav(model: new SimpleCms.Models.Page(page))
+        @$('.pages-nav').append(pageNav.render().el)
     @
 
-  announceSubject: ->
+  announceSubject: (event) ->
     event.preventDefault()
-
-    # console.log($(event.currentTarget).children(":first").attr("href"))
     Backbone.trigger('subjectChange', ["#{@model.get('id')}"])

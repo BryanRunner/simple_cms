@@ -8,12 +8,8 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
   end
 
-  def new
-    @subject = Subject.new
-  end
-
   def create
-    @subject = Subject.new(subject_params)
+    @subject = Subject.create(subject_params)
   end
 
   def edit
@@ -22,19 +18,17 @@ class SubjectsController < ApplicationController
 
   def update
     @subject = Subject.find(params[:id])
-  end
-
-  def delete
-    @subject = Subject.find(params[:id])
+    @subject.name = subject_params[:name]
+    @subject.save
   end
 
   def destroy
-    subject = Subject.find(params[:id]).destroy
+    @subject = Subject.find(params[:id]).destroy
   end
 
   private
 
-    def subject_params
-      params.require(:subject).permit(:name, :position, :visible)
-    end
+  def subject_params
+    params.require(:subject).permit(:id, :name, :position, :visible)
+  end
 end

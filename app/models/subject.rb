@@ -1,5 +1,9 @@
 class Subject < ActiveRecord::Base
 
+  def numberOfPages
+    pages.length
+  end
+
   has_many :pages
 
   scope :visible, lambda { where(:visible => true) }

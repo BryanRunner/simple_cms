@@ -1,3 +1,23 @@
+<a href="#/subjects/new" class="sidebar-menu animate">
+  create new subject
+</a>
+
 <ul class="sidebar-nav">
+  <% @subjects.forEach (subject) ->: %>
+  <li>
+    <a class="subject-nav" href="#subject_<%= subject.id %>">
+      <%= subject.attributes.name %>
+    </a>
+    <ul class="pages-nav" id="subject_<%= subject.id %>">
+    <% subject.pages.forEach (page) ->: %>
+      <li>
+        <a class="page-nav" id="page_<%= page.id %>" href="#/subject/<%= page.attributes.subject_id %>/page/<%= page.id %>">
+          <%= page.attributes.name %>
+        </a>
+      </li>
+    <% end %>
+    </ul>
+  </li>
+  <% end %>
 
 </ul>

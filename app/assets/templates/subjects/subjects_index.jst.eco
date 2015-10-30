@@ -1,0 +1,24 @@
+<div class="page-header animate">
+  <h1>Subjects <small>INDEX</small></h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div id="alert-box">
+
+    </div>
+    <ul class="list-group animate">
+      <% @subjects.forEach (subject) ->:%>
+        <li class="list-group-item" id="subject_index_<%= subject.get("id") %>">
+          <%= subject.get("name") %>
+          <a href="#" class="delete-icon pull-right" data-id="<%= subject.get("id") %>">
+            <span class="glyphicon glyphicon-trash"></span>
+          </a>
+          <a href="#/subject/<%= subject.get("id") %>/edit" class="edit-icon pull-right">
+            <span class="glyphicon glyphicon-edit"></span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
