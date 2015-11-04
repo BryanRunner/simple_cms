@@ -1,28 +1,30 @@
 class SimpleCms.Routers.ApplicationRouter extends Backbone.Router
   routes:
     ''                                 : 'index'
+    'users/sign_up'                    : 'newUser'
     'subjects'                         : 'subjectsIndex'
     'subjects/new'                     : 'newSubject'
     'subject/:subject_id/edit'         : 'editSubject'
     'subject/:subject_id/pages'        : 'pagesIndex'
     'subject/:subject_id/page/:page_id': 'showPage'
 
-  initialize: (options) ->
-    SimpleCms.subjects     = new SimpleCms.Collections.Subjects(options.subjects)
-    SimpleCms.pages        = new SimpleCms.Collections.Pages(_.flatten(@findPages(options.subjects)))
-    SimpleCms.headerView   = new SimpleCms.Views.Header()
-    SimpleCms.sideNav      = new SimpleCms.Views.SideNav(collection: SimpleCms.subjects)
-    SimpleCms.content      = $('#content')
-
   index: ->
+    Backbone.trigger 'navChange', {type: "index"}
     welcomeView  = new SimpleCms.Views.Welcome()
     @swapView(welcomeView)
 
+  newUser: ->
+    Backbone.trigger 'navChange', {type: "index"}
+    newUserView = new SimpleCms.Views.NewUser()
+    @swapView(newUserView)
+
   subjectsIndex: ->
+    Backbone.trigger 'navChange', {type: "index"}
     subjectsIndex = new SimpleCms.Views.SubjectsIndex(collection: SimpleCms.subjects)
     @swapView(subjectsIndex)
 
   showPage: (subject_id, page_id) ->
+    Backbone.trigger 'navChange', {type: "page", subject_id: subject_id, page_id: page_id}
     subject = SimpleCms.subjects.get subject_id
     page = new SimpleCms.Views.Page(model: subject.pages.get(page_id))
     @swapView(page, subject_id, page_id)
@@ -46,7 +48,3 @@ class SimpleCms.Routers.ApplicationRouter extends Backbone.Router
       @currentView = view
       SimpleCms.content.html(view.render().$el)
       $('#content .animate').velocity("transition.slideDownIn", stagger: 25, duration: 500)
-
-  findPages: (subjects) ->
-    _.map subjects, (subject) ->
-      return subject.pages

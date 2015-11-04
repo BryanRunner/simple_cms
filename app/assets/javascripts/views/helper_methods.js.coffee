@@ -10,13 +10,14 @@ class SimpleCms.Views.HelperMethods extends Backbone.View
       $(target).removeClass("active")
     callback? callback()
 
-  subjectNavAnim: (target, attr, direction) ->
+  navExpandAnim: (target, attr, direction) ->
+    targetNav = $("#{target}")
     switch direction
       when "down"
-        target.velocity
+        targetNav.velocity
           p: {height: ["#{attr}px", "0px"]},
           o: {duration: 300, easing: "easeInOutQuint", queue: false}
       when "up"
-        target.velocity
+        targetNav.velocity
           p: {height: ["0px", "#{attr}px"]},
           o: {duration: 300, easing: "easeInOutQuint", queue: false}

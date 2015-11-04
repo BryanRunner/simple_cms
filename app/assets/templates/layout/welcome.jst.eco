@@ -2,14 +2,14 @@
 
   <div class="col-sm-12 col-md-6">
 
-      <div class="home-btn animate">
+      <a href="#/users/sign_up" class="home-btn animate">
         <div class="welcome-content">
           <p><strong><span class="glyphicon glyphicon-circle-arrow-right"></span> sign up</strong></p>
           <p class="sub-text">Create an account now for free
           </p>
         </div>
         <span class="welcome-icon glyphicon glyphicon-user"></span>
-      </div>
+      </a>
   </div>
 
   <div class="col-sm-12 col-md-6">

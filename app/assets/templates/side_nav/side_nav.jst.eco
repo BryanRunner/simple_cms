@@ -5,10 +5,10 @@
 <ul class="sidebar-nav">
   <% @subjects.forEach (subject) ->: %>
   <li>
-    <a class="subject-nav" href="#subject_<%= subject.id %>">
+    <a class="subject-nav" id="subject_<%= subject.id %>" href="#pages_<%= subject.id %>">
       <%= subject.attributes.name %>
     </a>
-    <ul class="pages-nav" id="subject_<%= subject.id %>">
+    <ul class="pages-nav" id="pages_<%= subject.id %>">
     <% subject.pages.forEach (page) ->: %>
       <li>
         <a class="page-nav" id="page_<%= page.id %>" href="#/subject/<%= page.attributes.subject_id %>/page/<%= page.id %>">

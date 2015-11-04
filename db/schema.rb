@@ -11,26 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720222451) do
-
-  create_table "admin_users", force: :cascade do |t|
-    t.string   "first_name",      limit: 25
-    t.string   "last_name",       limit: 50
-    t.string   "email",           limit: 100, default: "", null: false
-    t.string   "username",        limit: 25
-    t.string   "hashed_password", limit: 40
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-  end
-
-  add_index "admin_users", ["username"], name: "index_admin_users_on_username", using: :btree
-
-  create_table "admin_users_pages", id: false, force: :cascade do |t|
-    t.integer "admin_user_id", limit: 4
-    t.integer "page_id",       limit: 4
-  end
-
-  add_index "admin_users_pages", ["admin_user_id", "page_id"], name: "index_admin_users_pages_on_admin_user_id_and_page_id", using: :btree
+ActiveRecord::Schema.define(version: 20151104003102) do
 
   create_table "pages", force: :cascade do |t|
     t.integer  "subject_id", limit: 4
@@ -44,16 +25,6 @@ ActiveRecord::Schema.define(version: 20150720222451) do
 
   add_index "pages", ["permalink"], name: "index_pages_on_permalink", using: :btree
   add_index "pages", ["subject_id"], name: "index_pages_on_subject_id", using: :btree
-
-  create_table "section_edits", force: :cascade do |t|
-    t.integer  "admin_user_id", limit: 4
-    t.integer  "section_id",    limit: 4
-    t.string   "summary",       limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "section_edits", ["admin_user_id", "section_id"], name: "index_section_edits_on_admin_user_id_and_section_id", using: :btree
 
   create_table "sections", force: :cascade do |t|
     t.integer  "page_id",      limit: 4
@@ -74,6 +45,11 @@ ActiveRecord::Schema.define(version: 20150720222451) do
     t.boolean  "visible",                default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
