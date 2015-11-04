@@ -14,3 +14,22 @@ em {
 #wrapper {
   max-height: 100vh;
 }
+
+.delete-icon {
+  display: block;
+  line-height: 22px;
+  color: $brand-danger;
+  padding: 0px 10px;
+  &:hover {
+    color: darken($brand-danger, 5%)
+  }
+}
+.edit-icon {
+  display: block;
+  line-height: 22px;
+  color: $brand-primary;
+  padding: 0px 10px;
+  &:hover {
+    color: darken($brand-primary, 5%)
+  }
+}

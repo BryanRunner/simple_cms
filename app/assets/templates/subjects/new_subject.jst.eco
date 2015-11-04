@@ -1,0 +1,14 @@
+<div class="col-md-6 animate">
+
+  <h1>Create Subject</h1>
+
+  <form id="new-subject" name="subject">
+    <div class="form-group">
+      <label for="subject-name">Name:</label>
+      <input type="text" class="form-control" id="subject-name" placeholder="subject name here">
+      <p class="help-block">Help text here.</p>
+    </div>
+     <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+</div>

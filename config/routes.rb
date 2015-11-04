@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :subjects
-  resources :sections
-  resources :pages
-
+  resources :subjects, only: [:index, :show, :create, :update, :destroy]
+  resources :pages, only: [:index, :show, :create, :update, :destroy]
+  resources :sections, only: [:index, :create, :update, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

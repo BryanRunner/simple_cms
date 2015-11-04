@@ -44,7 +44,7 @@ $link-hover-decoration: none !default;
 //## Font, line-height, and color for body text, headings, and more.
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:400,600);
 
-$font-family-source: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-source: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-sans-serif:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
@@ -674,7 +674,7 @@ $progress-bar-info-bg:        $brand-info !default;
 //** Background color on `.list-group-item`
 $list-group-bg:                 #fff !default;
 //** `.list-group-item` border color
-$list-group-border:             $btn-default-bg !default;
+$list-group-border:             $gray-lighter !default;
 //** List group border radius
 $list-group-border-radius:      $border-radius-base !default;
 
